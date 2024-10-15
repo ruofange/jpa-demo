@@ -4,6 +4,10 @@ spring:
     username: root
     password: tallsafe123
     url: jdbc:mysql://localhost:3306/wfzp_eq?serverTimeZone=Asia/Shanghai
+    hikari:
+      keepalive-time: 300000
+      maximum-pool-size: 140
+      max-lifetime: 600000
   jpa:
     hibernate:
       naming:
