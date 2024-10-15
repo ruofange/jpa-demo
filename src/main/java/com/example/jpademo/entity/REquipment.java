@@ -1,11 +1,10 @@
 package com.example.jpademo.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -63,5 +62,16 @@ public class REquipment {
 
     @Column(name = "AuditStatus")
     private Integer auditStatus;
+
+    /*@OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(
+            name = "ownerId",
+            referencedColumnName = "equipmentId",
+            insertable = false,
+            updatable = false,
+            foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT)
+    )*/
+    @Transient
+    private List<Tag> tagList;
 
 }
